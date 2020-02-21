@@ -7,7 +7,7 @@ const T = function(object) {return console.table(object)}
 
 
 function fizz_buzz(n) {
-    for (let i = 1; i < n; i++) {
+    for (let i = 1; i <= n; i++) {
         if (i % 3 == 0 && i % 5 == 0) {
             L("fizz_buzz")
         } else if (i % 3 == 0 ) {
@@ -19,3 +19,5 @@ function fizz_buzz(n) {
         }   
     }
 }
+
+fizz_buzz(32)
