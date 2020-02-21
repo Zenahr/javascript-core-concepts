@@ -1,0 +1,37 @@
+// Some shorthand code to make my life easier
+const L = function(message) {return console.log(message)}
+const T = function(object) {return console.table(object)}
+
+// INTRODUCTION
+// Linked lists are made out of nodes which are "linked" to one-another. Meaning nodes hold references to neighbouring nodes
+// they can be singely linked
+// O -> O -> O -> O
+// or doubly linked
+// O <-> O <-> O <-> O
+
+// nodes hold a value, and references to the previous and latter node
+
+// As with any other data structure, linked lists have well-defined operations.
+// I will implement simple push and pull functions, as well as a node-searching function.
+
+// Linked list object constructor function
+// Sidenote: Since an empty linked list got no nodes and therefore no head nor tail, I initialize the linked list with head and tail being null.
+function LinkedList() {
+    this.head = null;
+    this.tail = null;
+}
+
+function Node(value, next_node,  previous_node) {
+    this.value = value
+    this.next_node = next_node
+    this.previous_node = previous_node
+}
+
+// Initiate new linked list
+const to_do_list = new LinkedList()
+T(to_do_list)
+
+// Initiate new node
+// Sidenote: as this is the first node in our linked list, it has no previous node reference to it (since there is none).
+var task_one = new Node('finish dish washing', 'next_task', null)
+T(task_one)
