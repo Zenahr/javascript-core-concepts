@@ -27,6 +27,18 @@ function Node(value, next_node,  previous_node) {
     this.previous_node = previous_node
 }
 
+// The this keyword references the linked list object
+LinkedList.prototype.add_to_head = function(value) {
+    const new_node = new Node(value, this.head, null)
+    if(this.head) {
+        this.head.previous_node = new_node
+    } else {
+        // If the newly created head is the only node in our linked list, it is also the tail of our list
+        this.tail = new_node
+    }
+    this.head = new_node
+}
+
 // Initiate new linked list
 const to_do_list = new LinkedList()
 T(to_do_list)
@@ -35,3 +47,11 @@ T(to_do_list)
 // Sidenote: as this is the first node in our linked list, it has no previous node reference to it (since there is none).
 var task_one = new Node('finish dish washing', 'next_task', null)
 T(task_one)
+
+// Add node to the head
+to_do_list.add_to_head('practice guitar')
+T(to_do_list)
+to_do_list.add_to_head('pratice piano')
+T(to_do_list)
+to_do_list.add_to_head('take a shower')
+T(to_do_list)
