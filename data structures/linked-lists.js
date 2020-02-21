@@ -39,6 +39,16 @@ LinkedList.prototype.add_to_head = function(value) {
     this.head = new_node
 }
 
+LinkedList.prototype.add_to_tail = function(value) {
+    const new_node = new Node(value, null, this.tail)
+    if (this.tail) {
+        this.tail.next_node = new_node
+    } else {
+        this.head = new_node
+    }
+    this.tail = new_node
+}
+
 // Initiate new linked list
 const to_do_list = new LinkedList()
 T(to_do_list)
@@ -55,3 +65,12 @@ to_do_list.add_to_head('pratice piano')
 T(to_do_list)
 to_do_list.add_to_head('take a shower')
 T(to_do_list)
+
+to_do_list.add_to_tail('read a book')
+T(to_do_list)
+to_do_list.add_to_tail('browse reddit')
+T(to_do_list)
+to_do_list.add_to_tail('watch a movie')
+
+L(to_do_list.tail)
+L(to_do_list.tail.previous_node.previous_node)
